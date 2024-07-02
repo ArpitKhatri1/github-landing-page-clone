@@ -20,12 +20,32 @@ function HoverCard({
       if (!cardRef.current) {
         return;
       }
-      let x = e.pageX - cardRef.current?.offsetLeft - 500;
-      let y = e.pageY + cardRef.current?.offsetTop - 2230;
+      let x = e.pageX - cardRef.current?.offsetLeft - 600;
+      let y = e.pageY - window.scrollY - cardRef.current.getBoundingClientRect().top - 600;
 
       cardRef.current.style.setProperty("--x", x + "px");
       cardRef.current.style.setProperty("--y", y + "px");
-    });
+
+
+
+    })
+    cardRef.current?.addEventListener("mouseleave", (e: MouseEvent) => {
+      if (!cardRef.current) {
+        return;
+      }
+      cardRef.current.style.setProperty("--opacitybefore", "0%")
+
+
+
+    })
+    cardRef.current?.addEventListener("mouseenter", () => {
+      if (!cardRef.current) {
+        return;
+      }
+      cardRef.current.style.setProperty("--opacitybefore", "24%")
+
+
+    })
   }, []);
 
   return (

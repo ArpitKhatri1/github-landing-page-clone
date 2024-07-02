@@ -83,7 +83,7 @@ html,
 body {
   margin: 0;
   padding: 0;
-  height: 100%;
+
   overflow-x: hidden;
 }
 
@@ -91,27 +91,35 @@ body {
   background: linear-gradient(transparent, #7c72ff 20%);
 }
 
+.gradient-2 {
+  background: linear-gradient(#7c72ff, #2da44e 80%, #3fb950);
+}
+
+.gradient-3 {
+  background: linear-gradient(rgb(63, 185, 80), rgb(46, 160, 67), transparent);
+}
+.gradient-4 {
+  background: linear-gradient(transparent, rgb(46, 160, 67), transparent);
+}
+.gradient-5 {
+  background: linear-gradient(transparent, #33b3ae);
+}
+.gradient-6 {
+  background: linear-gradient(#33b3ae, transparent);
+}
 .radial-gradient-container::before {
   content: "";
   position: absolute;
 
   background: radial-gradient(green, transparent, transparent);
-  width: 1000px;
-  height: 1000px;
-  opacity: 28%;
-  filter: blur(70px);
-  top: var(--y);
-  left: var(--x);
-  transition: ease 0.08s;
+  width: 1200px;
+  height: 1200px;
+  opacity: var(--opacitybefore);
+  filter: blur(100px);
+  top: var(--y, -1200);
+  left: var(--x, -1200);
+  transition: ease;
+  transition: opacity 0.5 ease;
   border-radius: 12px;
   z-index: 0;
 }
-
-/* .radial-gradient-container::after {
-  content: "";
-  position: absolute;
-  inset: 2px;
-  border-radius: 12px;
-  background-color: #161b22;
-  opacity: 0.75;
-} */

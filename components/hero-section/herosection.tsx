@@ -5,10 +5,13 @@ import { Input } from "../ui/input";
 import { PiBracketsAngleBold } from "react-icons/pi";
 import { Separator } from "@/components/ui/separator"
 import Navbar from "../navbar";
+import EmailComponent from "../email";
+
+
 function HeroSection() {
   return (
     <div className="relative h-full ">
-      <Navbar/>
+      <Navbar />
       <Image
         src="/hero-desktop-a38b0fd77b6c.jpg"
         alt="heroimage"
@@ -16,22 +19,27 @@ function HeroSection() {
         height={0}
         sizes="100vw"
         className="absolute -z-10 left-[62%] h-auto w-[1160px] "
+        priority
       />
 
       <div className="container-xl max-w-[1280px] ml-auto mr-auto ">
         <div className="pt-44 h-full flex">
-          <div className="w-1/12 flex flex-col justify-center items-center relative">
-            <div className="absolute top-0 h-full space-y-1 flex flex-col items-center">
+          <div className="w-1/12 flex flex-col justify-center items-center ">
+            <div className="h-full space-y-2 flex flex-col items-center">
               <div>
                 <FaRegCircleDot />
               </div>
-              <div className="w-[3px] bg-white h-[40%] gradient-1 mx-auto"></div>
-              <div className="bg-violet-500 mt-2 blur-[20px] w-6 h-6 flex items-center justify-center"></div>
-              <PiBracketsAngleBold
-                size={25}
-                className="z-50 absolute top-[45%]"
-              />
-              <div className="w-[3px] bg-white h-[70%] gradient-1 mx-auto mt-10"></div>
+              <div className="w-[3px] bg-white h-[47%] gradient-1 mx-auto"></div>
+              <div className="p-2 relative">
+                <PiBracketsAngleBold
+                  size={25}
+                  className="z-50"
+                />
+                <div className="bg-violet-500 absolute mt-2 blur-[20px] w-6 h-6 flex top-0"></div>
+              </div>
+
+
+              <div className="w-[3px] bg-white h-[70%] gradient-2 mx-auto mt-1"></div>
             </div>
           </div>
           <div>
@@ -45,15 +53,7 @@ function HeroSection() {
                 className="bg-white w-64 h-10 rounded-l-sm rounded-r-none"
               />
               <div className="flex gap-4">
-                <button className="px-5 py-2 bg-violet-600 h-10 rounded-r-sm font-semibold text-sm">
-                  Sign Up for Github
-                
-                </button>
-              <Separator orientation="vertical"/>
-
-              <button className="py-1 px-5 h-10 font-semibold text-sm rounded-md border-solid border-[2px] border-violet-400">
-                Start a free enterprise trial
-              </button>
+                <EmailComponent />
 
 
               </div>

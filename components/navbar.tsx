@@ -85,8 +85,8 @@ function Navbar() {
                         placeholder='Search or jump to...'
 
                     />
-                       
-                    
+
+
                 </div>
 
 
