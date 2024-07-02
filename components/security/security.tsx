@@ -69,7 +69,7 @@ function Security() {
             </div>
           </div>
         </div>
-        <div className='h-[480px] w-auto relative'>
+        <div className='h-[480px] w-auto relative pb-10'>
           <Image
             alt="image"
             src={"/shape-2-f30dcc9bd35c.svg"}

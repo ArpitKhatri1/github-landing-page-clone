@@ -111,15 +111,28 @@ body {
   content: "";
   position: absolute;
 
-  background: radial-gradient(green, transparent, transparent);
+  background: radial-gradient(#0fa824, transparent, transparent);
   width: 1200px;
   height: 1200px;
   opacity: var(--opacitybefore);
-  filter: blur(100px);
+  filter: blur(180px);
   top: var(--y, -1200);
   left: var(--x, -1200);
   transition: ease;
-  transition: opacity 0.5 ease;
-  border-radius: 12px;
+  transition: opacity 1.2;
+
+  border-radius: 300px;
   z-index: 0;
+  will-change: transform;
+}
+
+.radial-gradient-container {
+  transform: rotateX(var(--rotateXP)) rotateY(var(--rotateYP));
+  overflow: hidden;
+  perspective: var(--perspectiveP);
+  /* transition: ease 0.1s; */
+}
+
+.perv {
+  perspective: 500px;
 }
