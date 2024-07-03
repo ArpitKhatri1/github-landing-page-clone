@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+/* @font-face {
+  font-family: monoSans;
+  src: url(/fonts/mona-sans-d1bf285e9b9b.woff2);
+  font-weight: 900;
+} */
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -83,7 +88,7 @@ html,
 body {
   margin: 0;
   padding: 0;
-
+  /* font-family: monoSan; */
   overflow-x: hidden;
 }
 

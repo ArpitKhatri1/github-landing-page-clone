@@ -1,4 +1,3 @@
-
 import React, { useEffect } from "react";
 import Image from "next/image";
 import { FaGreaterThan } from "react-icons/fa";
@@ -8,31 +7,42 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { GoBriefcase } from "react-icons/go";
+import AllEditors from "./all-editors";
+import ProductivityMainContent from "./productivity-main-content";
+gsap.registerPlugin(ScrollTrigger)
 
-gsap.registerPlugin(ScrollTrigger);
 function Productivity() {
     const shapeRef1 = useRef(null);
     const shapeRef2 = useRef(null);
-    const copilotEditor = useRef(null);
-    const copilotPopUp = useRef(null);
-    const purpleBg = useRef(null);
-    // useGSAP(() => {
-    //     gsap.to(shapeRef1.current, { rotateZ: 360, duration: 50, repeat: -1, ease: "none" })
-    //     gsap.to(shapeRef2.current, { rotateZ: 360, duration: 70, repeat: -1, ease: "none" })
-    //     gsap.from(copilotEditor.current, {
-    //         translateX: 100,
-    //         opacity: 0,
-    //         duration: 0.5,
-    //         ease: "power1.inOut",
-    //         scrollTrigger: {
-    //             trigger: copilotEditor.current,
-    //             markers: true,
-    //             start: "0% 90%",
-    //             end: "0% 90%",
+    const prodLine = useRef(null)
 
-    //         }
-    //     });
-    // });
+    useGSAP(() => {
+        gsap.to(shapeRef1.current, {
+            rotateZ: 360,
+            duration: 50,
+            repeat: -1,
+            ease: "none",
+        });
+        gsap.to(shapeRef2.current, {
+            rotateZ: 360,
+            duration: 70,
+            repeat: -1,
+            ease: "none",
+        });
+
+        gsap.from(prodLine.current, {
+            transformOrigin: "center top",
+            scale: 0,
+            duration: 0.5,
+            scrollTrigger: {
+                trigger: prodLine.current,
+                start: "top 75%",
+                toggleActions: "play none none reverse",
+
+            }
+        })
+
+    });
 
     return (
         <div className="relative h-full ">
@@ -43,12 +53,12 @@ function Productivity() {
                             <GoBriefcase size={25} className="z-50 " />
                             <div className="bg-green-500 absolute mt-2 blur-[20px] w-6 h-6 flex top-3"></div>
                         </div>
-                        <div className="w-[3px] bg-white h-full gradient-3 mx-auto mt-1"></div>
+                        <div ref={prodLine} className="w-[3px] bg-white h-full gradient-3 mx-auto mt-1"></div>
                     </div>
 
                     <div className="pb-28 pt-4">
                         <div className="text-xl ">Productivity</div>
-                        <div className="mt-4 text-[2.5rem]  leading-9  text-green-500">
+                        <div className="mt-4 text-[2.5rem] leading-9  text-green-500">
                             Accelerate innovation
                         </div>
                         <div className="text-[2.3rem] ">
@@ -69,81 +79,10 @@ function Productivity() {
                     />
                 </div>
                 <div className="relative">
-                    <div ref={copilotEditor} className="copilotEditor">
-                        <Image
-                            src={"/illu-copilot-editor-6474457a5b19.png"}
-                            alt="circle"
-                            height={0}
-                            width={0}
-                            sizes="100vw"
-                            className="w-[1368px] h-auto"
-                        />
-                    </div>
-                    <div>
-                        <Image
-                            src={"/illu-copilot-sidebar-3d2efb504577.png"}
-                            alt="circle"
-                            height={0}
-                            width={0}
-                            sizes="100vw"
-                            className="w-[468px] h-auto absolute right-10 rounded-xl top-[40%]"
-                        />
-                    </div>
-                    <div>
-                        <Image
-                            src={"/bg-glow-purple-6e9a6a96cb04.png"}
-                            alt="circle"
-                            height={0}
-                            width={0}
-                            sizes="100vw"
-                            className="w-[1068px] -z-50 h-auto absolute right-[-20%] rounded-xl top-[40%]"
-                        />
-                    </div>
+                    <AllEditors />
                 </div>
                 <div className="flex ">
-                    <div className="w-1/12 flex flex-col justify-center items-center relative">
-                        <div className="w-[3px] bg-white h-full gradient-4 mx-auto mt-1"></div>
-                        <div>
-                            <Image
-                                alt="image"
-                                src={"/git-branch-productivity-c304b83d09c7.svg"}
-                                width={0}
-                                height={0}
-                                sizes="100vw"
-                                className="h-auto w-[80px] absolute top-[31%]"
-                            />
-                        </div>
-                    </div>
-                    <div className="ml-10  mt-12 ">
-                        <div className="mb-24 text-neutral-500 text-xl">
-                            <div>
-                                <span className="text-white">GitHub Copilot </span>empowers
-                                developers to{" "}
-                            </div>
-                            <div>complete tasks 55% faster with </div>
-                            <div> contextualized AI coding assistance across</div>
-                            <div>workflows.</div>
-                            <div className="flex gap-3 font-semibold mt-3 text-white">
-                                Explore Github Copilot
-                                <FaGreaterThan size={15} className="mt-2" />
-                            </div>
-                        </div>
-                        <div className="space-y-3 ml-2">
-                            <span className="text-xs text-green-500 border-solid border-[1px] border-green-500 py-[2px] px-2 rounded-xl">
-                                Did you know?
-                            </span>
-
-                            <div className="text-green-500 text-5xl ">22% increase</div>
-                            <div className="text-xl">
-                                <div>in developer productivity after three</div>
-                                <div>years with GitHub</div>
-                            </div>
-                        </div>
-                        <div className="flex gap-2 mt-5 text-lg pb-20 ml-2">
-                            Read The report
-                            <FaGreaterThan size={13} className="mt-[12px]" />
-                        </div>
-                    </div>
+                    <ProductivityMainContent />
                 </div>
                 <div className="w-full flex flex-col gap-5">
                     <div className="relative">

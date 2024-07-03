@@ -24,7 +24,7 @@ function HoverCard({
   useEffect(() => {
     const setColour = colour == "green" ? "#0fa824" : colour == "blue" ? "#12aaba" : "#fc17fc"
     // cardRef.current?.style.setProperty("--colorR", setColour);
-    console.log(setColour)
+
 
   }, [])
 

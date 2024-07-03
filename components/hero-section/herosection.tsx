@@ -9,6 +9,8 @@ import EmailComponent from "../email";
 
 
 function HeroSection() {
+
+
   return (
     <div className="relative h-full ">
       <Navbar />
@@ -66,32 +68,42 @@ function HeroSection() {
                 <Image
                   src={"/3m-0151c2fda0ce.svg"}
                   alt="img"
-                  width={60}
-                  height={60}
+                  width={0}
+                  height={0}
+                  sizes="100vw"
+                  className="h-auto w-[75px]"
                 />
                 <Image
                   src={"/kpmg-c249f20c5173.svg"}
                   alt="img"
-                  width={100}
-                  height={100}
+                  width={0}
+                  height={0}
+                  sizes="100vw"
+                  className="h-auto w-[105px]"
                 />
                 <Image
                   src={"/mercedes-fcf97d2d6ec4.svg"}
                   alt="img"
-                  width={200}
-                  height={200}
+                  width={0}
+                  height={0}
+                  sizes="100vw"
+                  className="h-auto w-[195px]"
                 />
                 <Image
                   src={"/pg-f1f19955c4e4.svg"}
                   alt="img"
-                  width={80}
-                  height={100}
+                  width={0}
+                  height={0}
+                  sizes="100vw"
+                  className="h-auto w-[75px]"
                 />
                 <Image
                   src={"/sap-96248a56d312.svg"}
                   alt="img"
-                  width={80}
-                  height={100}
+                  width={0}
+                  height={0}
+                  sizes="100vw"
+                  className="h-auto w-[75px]"
                 />
               </div>
             </div>

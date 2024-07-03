@@ -35,7 +35,7 @@ function Security() {
 
   return (
     <div className="relative h-full ">
-      <div className="container-xl max-w-[1280px] ml-auto mr-auto ">
+      <div className="container-xl max-w-[1280px] ml-auto mr-auto justify-center">
         <div className="flex relative">
           <SecurityMain />
         </div>
@@ -148,6 +148,7 @@ function Security() {
             </div>
           </HoverCard>
         </div>
+        <video src="/globe-900.h264-975e7b5ac572.mp4" autoPlay muted loop className="w-[900px] h-[900px]"></video>
       </div>
     </div>
   );

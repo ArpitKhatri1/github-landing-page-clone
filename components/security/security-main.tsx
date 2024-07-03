@@ -19,7 +19,7 @@ function SecurityMain() {
             },
             scrollTrigger: {
                 trigger: mainContent.current,
-                markers: true,
+
                 start: "0% center"
             },
         })
@@ -62,7 +62,7 @@ function SecurityMain() {
             <div className="pt-40 pb-24">
                 <div className="text-xl" ref={appLine}>Application Security</div>
                 <div className="space-y-1" ref={mainContent}>
-                    <div className="text-teal-500  text-5xl mt-4">
+                    <div className="text-teal-500  text-5xl mt-4 ">
                         Empower developers
                     </div>
                     <div className="text-5xl">With GitHub, you can secure</div>
