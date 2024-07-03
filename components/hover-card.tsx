@@ -8,15 +8,25 @@ import { useGSAP } from "@gsap/react";
 function HoverCard({
   children,
   className,
+  colour
 }: {
   children: React.ReactNode;
   className: string;
+  colour?: "green" | "blue" | "pink"
 }) {
+
+
+
   const cardRef = useRef<HTMLDivElement>(null);
   const cardContainerRef = useRef<HTMLDivElement>(null);
-  const constrain = 20;
-  const perspectiveValue = '1000px';
 
+
+  useEffect(() => {
+    const setColour = colour == "green" ? "#0fa824" : colour == "blue" ? "#12aaba" : "#fc17fc"
+    // cardRef.current?.style.setProperty("--colorR", setColour);
+    console.log(setColour)
+
+  }, [])
 
 
 
@@ -32,11 +42,11 @@ function HoverCard({
       cardRef.current.style.setProperty("--y", y + "px");
       let turnX = e.pageX - cardRef.current.getBoundingClientRect().left - cardRef.current.getBoundingClientRect().width / 2
       let turnY = e.pageY - window.scrollY - cardRef.current.getBoundingClientRect().top - cardRef.current.getBoundingClientRect().height / 2;
-      console.log(turnX)
+
 
       cardRef.current?.style.setProperty('--rotateYP', -1 * turnX / 700 + "deg");
-      cardRef.current?.style.setProperty('--rotateXP', turnY / 1000 + "deg");
-      // cardRef.current?.style.setProperty('--perspectiveP', 1000 + 'px');
+      cardRef.current?.style.setProperty('--rotateXP', turnY / 300 + "deg");
+
 
 
 

@@ -111,7 +111,7 @@ body {
   content: "";
   position: absolute;
 
-  background: radial-gradient(#0fa824, transparent, transparent);
+  background: radial-gradient(var(--colorR), transparent, transparent);
   width: 1200px;
   height: 1200px;
   opacity: var(--opacitybefore);
