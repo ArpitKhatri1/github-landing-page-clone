@@ -49,17 +49,7 @@ function HeroSection() {
             <div className="text-gray-500 text-xl mt-3 mb-20">
               The world’s leading AI-powered developer platform.
             </div>
-            <div className="flex">
-              <Input
-                placeholder="Email Address"
-                className="bg-white w-64 h-10 rounded-l-sm rounded-r-none"
-              />
-              <div className="flex gap-4">
-                <EmailComponent />
-
-
-              </div>
-            </div>
+            <EmailComponent />
             <div className="pt-16 pb-24 space-y-4">
               <div className="text-gray-500 text-lg">
                 Trusted by the world’s leading organizations
@@ -87,7 +77,7 @@ function HeroSection() {
                   width={0}
                   height={0}
                   sizes="100vw"
-                  className="h-auto w-[195px]"
+                  className="h-auto w-[215px]"
                 />
                 <Image
                   src={"/pg-f1f19955c4e4.svg"}

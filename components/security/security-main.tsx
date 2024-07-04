@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
@@ -9,25 +9,19 @@ function SecurityMain() {
     const line1 = useRef(null);
     const lockIcon = useRef(null);
     const line2 = useRef(null);
-    const appLine = useRef(null)
-    const mainContent = useRef(null)
-
-    const timeline = useRef<GSAPTimeline>(
-        gsap.timeline({
-            defaults: {
-                ease: "back.out",
-            },
-            scrollTrigger: {
-                trigger: mainContent.current,
-
-                start: "0% center"
-            },
-        })
-    );
-
-    const tl = timeline.current;
+    const appLine = useRef(null);
+    const mainContent = useRef(null);
 
     useGSAP(() => {
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: mainContent.current,
+                // markers: true,
+                start: "0% center",
+                toggleActions: "play none none reverse"
+            },
+        });
+
         tl.from(line1.current, {
             scaleY: 0,
             duration: 0.5,
@@ -37,12 +31,16 @@ function SecurityMain() {
             .from(lockIcon.current, { opacity: 0, duration: 0.2, ease: "power1.out" })
             .from(appLine.current, { translateX: -40, opacity: 0, duration: 0.4 })
             .from(mainContent.current, { translateX: -40, opacity: 0, duration: 0.4 })
-            .from(line2.current, {
-                scaleY: 0,
-                duration: 0.7,
-                ease: "power1.out",
-                transformOrigin: "top center",
-            }, "-=0.5");
+            .from(
+                line2.current,
+                {
+                    scaleY: 0,
+                    duration: 0.7,
+                    ease: "power1.out",
+                    transformOrigin: "top center",
+                },
+                "-=0.5"
+            );
     });
     return (
         <>
@@ -60,7 +58,9 @@ function SecurityMain() {
                 ></div>
             </div>
             <div className="pt-40 pb-24">
-                <div className="text-xl" ref={appLine}>Application Security</div>
+                <div className="text-xl" ref={appLine}>
+                    Application Security
+                </div>
                 <div className="space-y-1" ref={mainContent}>
                     <div className="text-teal-500  text-5xl mt-4 ">
                         Empower developers
@@ -71,7 +71,7 @@ function SecurityMain() {
                 </div>
             </div>
         </>
-    )
+    );
 }
 
-export default SecurityMain
+export default SecurityMain;

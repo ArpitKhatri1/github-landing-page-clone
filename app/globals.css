@@ -112,6 +112,17 @@ body {
 .gradient-6 {
   background: linear-gradient(#33b3ae, transparent);
 }
+.gradient-7 {
+  background: linear-gradient(transparent, rgb(51, 179, 174), transparent);
+}
+.gradient-8 {
+  background: linear-gradient(
+    transparent,
+    rgb(102, 57, 186) 10%,
+    rgb(163, 113, 247),
+    rgb(210, 168, 255)
+  );
+}
 .radial-gradient-container::before {
   content: "";
   position: absolute;
