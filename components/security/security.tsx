@@ -5,7 +5,7 @@ import HoverCard from "../hover-card";
 import Image from "next/image";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import { ScrollTrigger } from "gsap/all";
 import SecurityMain from "./security-main";
 import SecurityMainContent from "./security-main-content";
@@ -14,7 +14,21 @@ import EmailComponent from "../email";
 import { PiBracketsAngleBold } from "react-icons/pi";
 gsap.registerPlugin(ScrollTrigger);
 function Security() {
-  const refs = Array.from({ length: 3 }, () => useRef(null));
+  let refs: HTMLCollectionOf<Element>
+  let refsArray: Element[] = []
+
+  useEffect(() => {
+    refs = document.getElementsByClassName("timeline-element")
+    for (let i = 0; i < refs.length; i++) {
+      refsArray.push(refs[i])
+
+    }
+    console.log(refsArray)
+
+  }, [])
+
+
+
   const data = [
     { key: 0, time: "1m 42s", text: "Initialize CodeQL" },
     { key: 1, time: "1m 24s", text: "Autobuild" },
@@ -42,8 +56,8 @@ function Security() {
     t2.from(block1.current, { opacity: 0, scale: 0.5, duration: 0.5 })
       .from(joinLine.current, { opacity: 0, scale: 0.5, duration: 0.5 })
       .from(block2.current, { opacity: 0, scale: 0.5, duration: 0.5 });
-    refs.forEach((ref) => {
-      t2.from(ref.current, { opacity: 0, duration: 0.3, scale: 0.8 });
+    refsArray.forEach((ref) => {
+      t2.from(ref, { opacity: 0, duration: 0.3, scale: 0.8 });
     });
 
     gsap.from(listPopUp.current, {
@@ -72,6 +86,7 @@ function Security() {
       },
     });
   });
+
 
   return (
     <div className="relative h-full ">
@@ -137,8 +152,8 @@ function Security() {
                     return (
                       <div
                         key={data.key}
-                        ref={refs[data.key]}
-                        className="py-4 flex px-4 items-center"
+
+                        className="py-4 flex px-4 items-center timeline-element"
                       >
                         <svg
                           aria-hidden="true"
